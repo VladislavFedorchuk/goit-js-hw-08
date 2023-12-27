@@ -71,7 +71,19 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             const imageUrl = link.getAttribute('href');
 
-            basicLightbox.create(`<img  class= "modal"src="${imageUrl}" alt="Image">`).show();
+            const instance = basicLightbox.create(`<img class="modal" src="${imageUrl}" alt="Image">`);
+
+            document.addEventListener('keydown', onKeyPress);
+
+            instance.show();
+
+            function onKeyPress(event) {
+                // Код клавіші Escape - 27
+                if (event.code === 'Escape') {
+                    instance.close();
+                    document.removeEventListener('keydown', onKeyPress);
+                }
+            }
         });
     });
 });
