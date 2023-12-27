@@ -1,0 +1,41 @@
+.modal{
+   width: 1112px;
+   height: 800px;
+}
+.gallery{
+    display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+        max-width: 1440px;
+        padding: 0;
+}
+.gallery-item {
+list-style: none;
+    width: 360px;
+        height: 200px;
+    
+}
+
+.gallery-image {
+    width: 360px;
+    height: 200px;
+   
+   
+}
+.gallery-link {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.gallery-image {
+    transition: transform 0.2s ease-in-out;
+}
+
+.gallery-link:hover .gallery-image {
+    transform: scale(1.1);
+}
+.gallery-link:hover .gallery-image {
+ border: 5px solid #ffffff;
+}
+
