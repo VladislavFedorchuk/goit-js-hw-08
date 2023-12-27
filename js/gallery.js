@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             function onKeyPress(event) {
               
-                if (event.code === 'Escape') {
+                if (event.code === 'Esc') {
                     instance.close(27);
                     document.removeEventListener('keydown', onKeyPress);
                 }
