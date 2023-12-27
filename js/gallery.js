@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
             instance.show();
 
             function onKeyPress(event) {
-                // Код клавіші Escape - 27
+               
                 if (event.code === 'Escape') {
                     instance.close();
                     document.removeEventListener('keydown', onKeyPress);
