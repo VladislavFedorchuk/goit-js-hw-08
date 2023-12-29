@@ -66,6 +66,23 @@ const images = [
 document.addEventListener('DOMContentLoaded', function () {
     const gallery = document.querySelector('.gallery');
 
+    images.forEach(function (image) {
+        const galleryItem = document.createElement('li');
+        galleryItem.classList.add('gallery-item');
+
+        const galleryLink = document.createElement('a');
+        galleryLink.classList.add('gallery-link');
+        galleryLink.href = image.original;
+
+        const galleryImage = document.createElement('img');
+        galleryImage.classList.add('gallery-image');
+        galleryImage.src = image.preview;
+        galleryImage.alt = image.description;
+
+        galleryLink.appendChild(galleryImage);
+        galleryItem.appendChild(galleryLink);
+    });
+
     gallery.addEventListener('click', function (event) {
         event.preventDefault();
 
@@ -74,6 +91,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const imageUrl = clickedElement.getAttribute('href');
 
             const instance = basicLightbox.create(`<img class="modal" src="${imageUrl}" alt="Image">`, {
+                onShow: function () {
+                    document.addEventListener('keydown', onKeyPress);
+                },
                 onClose: function () {
                     document.removeEventListener('keydown', onKeyPress);
                 }
@@ -85,11 +105,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-            document.addEventListener('keydown', onKeyPress);
-
             instance.show();
         }
     });
 });
-
 
